@@ -208,7 +208,7 @@ class ThisApp():
                         'device_id': 'android-'+self.uid,
                         '_uuid': self.uid,
                     }
-        req_web = self.mr.post(url_check,data=datacheck,headers=self.headers) ## TODO ADD PEOXIES
+        req_web = self.mr.post(url_check,data=datacheck,headers=self.headers,proxies=self.random_proxies(),timeout=10) ## TODO ADD PEOXIES
 
         if ('''"message":"Sorry, we can't send you a login link. Please contact Instagram for more help.",''') in req_web.text:
             self.verfied_users+=1
