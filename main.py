@@ -23,6 +23,8 @@ class ThisApp():
         self.users_checked = 0
         self.verfied_users = 0
         self.not_verfied = 0
+        self.valid_domain = 0
+        self.not_valid_domains = 0
         
         self.api = [
             '/usernameinfo/',
@@ -54,6 +56,8 @@ class ThisApp():
 [+] error or blocked : {self.error}
 [+] verified emails : {self.verfied_users}
 [+] not verified emails : {self.not_verfied}
+[+] valid domains : {self.valid_domain}
+[+] not valid domains : {not_valid_domains}
 ==========================
 [*] all important info will be saved !!
         '''
@@ -101,6 +105,17 @@ class ThisApp():
                     print(f"{target} No user found")
         
         self.get_following()
+    
+    def check_domain(self,user,domain):
+        req = requests.get(f'https://check-host.net/ip-info?host={domain}')
+        if 'No info found for host' in req.text:
+            self.valid_domain+=1
+            with open("valid_domains.txt",'a') as w:
+                w.write(f'valid domain can register > {user}:{domain}\n')
+        else:
+            self.not_valid_domains+=1
+            with open("not_valid_domains.txt",'a') as w:
+                w.write(f'valid domain can register > {user}:{domain}\n')
     
     def check_valid(self,email,username):
         email_type = str(email).split('@')[1].split('.')[0]
@@ -190,6 +205,9 @@ class ThisApp():
                         w.write(f"hacked {username}:{email}\n")
                 else:
                     self.notvalid+=1
+        else:
+            domain = email.split('@')[1]
+            self.check_domain(users,domain)
                     
         
         self.printall()
