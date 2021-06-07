@@ -43,8 +43,6 @@ class ThisApp():
             'https':f'http://{prx}'
         }
 
-        print(proxies)
-
         return proxies
     
     def printall(self):
@@ -57,7 +55,7 @@ class ThisApp():
 [+] verified emails : {self.verfied_users}
 [+] not verified emails : {self.not_verfied}
 [+] valid domains : {self.valid_domain}
-[+] not valid domains : {not_valid_domains}
+[+] not valid domains : {self.not_valid_domains}
 ==========================
 [*] all important info will be saved !!
         '''
@@ -115,7 +113,7 @@ class ThisApp():
         else:
             self.not_valid_domains+=1
             with open("not_valid_domains.txt",'a') as w:
-                w.write(f'valid domain can register > {user}:{domain}\n')
+                w.write(f'not valid > {user}:{domain}\n')
     
     def check_valid(self,email,username):
         email_type = str(email).split('@')[1].split('.')[0]
