@@ -205,7 +205,7 @@ class ThisApp():
                     self.notvalid+=1
         else:
             domain = email.split('@')[1]
-            self.check_domain(users,domain)
+            self.check_domain(username,domain)
                     
         
         self.printall()
