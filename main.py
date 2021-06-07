@@ -105,8 +105,8 @@ class ThisApp():
         self.get_following()
     
     def check_domain(self,user,domain):
-        req = requests.get(f'https://check-host.net/ip-info?host={domain}')
-        if 'No info found for host' in req.text:
+        req = requests.get(f'https://rdap.verisign.com/com/v1/domain/{domain}').status_code
+        if req == 404:
             self.valid_domain+=1
             with open("valid_domains.txt",'a') as w:
                 w.write(f'valid domain can register > {user}:{domain}\n')
