@@ -454,6 +454,7 @@ class MyApp(QWidget, Ui_Form):
                             self.error += 1
                         self.dnlab.setText(f'DONE : {self.done}')
                         self.erlab.setText(f"ERROR : {self.error}")
+                        time.sleep(1)
 
     def get_highligts(self):
         for target in self.targets:
@@ -552,6 +553,7 @@ class MyApp(QWidget, Ui_Form):
                         self.error += 1
                     self.dnlab.setText(f'DONE : {self.done}')
                     self.erlab.setText(f"ERROR : {self.error}")
+                    time.sleep(1)
 
 
 if __name__ == '__main__':
