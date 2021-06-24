@@ -1,3 +1,5 @@
+import ctypes
+ctypes.windll.user32.ShowWindow( ctypes.windll.kernel32.GetConsoleWindow(), 0 )
 class MyApp(QWidget, Ui_Form):
     def __init__(self, parent=None):
         super(MyApp, self).__init__(parent)
