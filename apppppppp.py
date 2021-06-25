@@ -62,15 +62,16 @@ class MyApp(QWidget, Ui_Form):
 
     def checksub(self):
         tkn = self.subid.text()
-        if tkn in requests.get('https://pastebin.com/raw/iLYei3Kd').text:
-            self.tabWidget.setTabEnabled(1, True)
-            self.tabWidget.setTabEnabled(2, True)
-            self.tabWidget.setTabEnabled(3, True)
-            self.tabWidget.setCurrentIndex(1)
-            self.tabWidget.setTabEnabled(0, False)
+        if tkn != "":
+            if tkn in requests.get('https://pastebin.com/raw/iLYei3Kd').text:
+                self.tabWidget.setTabEnabled(1, True)
+                self.tabWidget.setTabEnabled(2, True)
+                self.tabWidget.setTabEnabled(3, True)
+                self.tabWidget.setCurrentIndex(1)
+                self.tabWidget.setTabEnabled(0, False)
 
-        else:
-            autopy.alert.alert("Not Subscribed", "CHECK SUB")
+            else:
+                autopy.alert.alert("Not Subscribed", "CHECK SUB")
 
     def openaccs(self):
 
