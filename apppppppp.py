@@ -10,6 +10,7 @@ class MyApp(QWidget, Ui_Form):
         self.setMinimumSize(828, 501)
         self.setWindowFlags(QtCore.Qt.WindowCloseButtonHint |
                             QtCore.Qt.WindowMinimizeButtonHint)
+        self.subid.setReadOnly(True)
 
         self.uid = str(uuid.uuid4())
         self.r = requests.Session()
