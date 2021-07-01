@@ -19,23 +19,6 @@ try:
 except Exception as e:
     raise
 
-try:
-    x = os.popen("wmic csproduct get UUID").read().split()[-1]
-    def before():
-        print(x)
-        url = "https://pastebin.com/raw/CJKj6hqs"
-        reqid = requests.get(url).text
-        if x in reqid:
-            os.system('cls' if os.name == 'nt' else 'clear')
-            pass
-        else:
-            input('Not subscribed Enter to exit ...')
-            exit()
-    before()
-except:
-    print("error")
-    input("")
-    exit()
 class MyApp(QWidget, Ui_MainWindow):
     def __init__(self, parent=None):
         super(MyApp, self).__init__(parent)
