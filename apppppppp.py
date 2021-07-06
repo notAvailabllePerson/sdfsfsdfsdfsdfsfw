@@ -14,8 +14,7 @@ class MyApp(QWidget, Ui_Form):
 
         self.uid = str(uuid.uuid4())
         self.r = requests.Session()
-        self.cookies = [{'csrftoken': 'St1k9zmPPXEoKIf1Uxl2PdkBIu1pYkFH', 'ds_user_id': '48287613260',
-                         'mid': 'YMz8FAABAAHcIInA2Qm3NtBFghqg', 'rur': 'FTW', 'sessionid': '48287613260%3AIP67FQtbt4AFdL%3A8'}]
+        self.cookies = []
         self.reels_id = []
         self.targets = []
         self.ids = []
