@@ -134,9 +134,10 @@ class MyApp(QWidget, Ui_Form):
         if self.tabWidget.currentIndex() == 1:
             target = self.tarprf.text()
             try:
-                get = self.r.get(
-                    f'https://www.instagram.com/{target}/?__a=1', cookies=random.choice(self.cookies)).json()
-                idd = str(get["logging_page_id"]).split('_')[1]
+                url = f"https://i.instagram.com/api/v1/users/lookup/"
+                data = {"_csrftoken": "missing", "q": target, "_uid": str(uuid.uuid4()), "guid": str(uuid.uuid4()),
+                "device_id": "android-d595db3f5c276071", "_uuid": str(uuid.uuid4()), "directly_sign_in": "true"}
+                idd = self.r.post(url,data=data,headers=self.headers).json()['user']['pk']
                 self.targets.append(idd)
                 self.added += 1
             except:
@@ -145,9 +146,10 @@ class MyApp(QWidget, Ui_Form):
         elif self.tabWidget.currentIndex() == 2:
             target = self.tarstr.text()
             try:
-                get = self.r.get(
-                    f'https://www.instagram.com/{target}/?__a=1', cookies=random.choice(self.cookies)).json()
-                idd = str(get["logging_page_id"]).split('_')[1]
+                url = f"https://i.instagram.com/api/v1/users/lookup/"
+                data = {"_csrftoken": "missing", "q": target, "_uid": str(uuid.uuid4()), "guid": str(uuid.uuid4()),
+                "device_id": "android-d595db3f5c276071", "_uuid": str(uuid.uuid4()), "directly_sign_in": "true"}
+                idd = self.r.post(url,data=data,headers=self.headers).json()['user']['pk']
                 self.targets.append(idd)
                 self.added += 1
             except:
@@ -157,9 +159,10 @@ class MyApp(QWidget, Ui_Form):
         elif self.tabWidget.currentIndex() == 3:
             target = self.tarhi.text()
             try:
-                get = self.r.get(
-                    f'https://www.instagram.com/{target}/?__a=1', cookies=random.choice(self.cookies)).json()
-                idd = str(get["logging_page_id"]).split('_')[1]
+                url = f"https://i.instagram.com/api/v1/users/lookup/"
+                data = {"_csrftoken": "missing", "q": target, "_uid": str(uuid.uuid4()), "guid": str(uuid.uuid4()),
+                "device_id": "android-d595db3f5c276071", "_uuid": str(uuid.uuid4()), "directly_sign_in": "true"}
+                idd = self.r.post(url,data=data,headers=self.headers).json()['user']['pk']
                 self.targets.append(idd)
                 self.added += 1
             except:
